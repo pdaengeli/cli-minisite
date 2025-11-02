@@ -359,6 +359,15 @@ function showSection(section) {
         
         // Clear and prepare content display
         contentDisplay.innerHTML = '';
+        contentDisplay.classList.remove('maximized'); // Reset maximized state
+        
+        // Add maximize button
+        const maximizeBtn = document.createElement('button');
+        maximizeBtn.className = 'content-maximize-btn';
+        maximizeBtn.innerHTML = '⛶'; // Maximize icon
+        maximizeBtn.title = 'Maximize content';
+        maximizeBtn.onclick = () => toggleMaximize(maximizeBtn);
+        contentDisplay.appendChild(maximizeBtn);
         
         // Add title to content
         const titleElement = document.createElement('h1');
@@ -376,12 +385,25 @@ function showSection(section) {
         contentDisplay.classList.remove('hidden');
         
         // Print brief success message in terminal
-        // printOutput(`✓ Loaded: ${label}`, 'success');
+        printOutput(`✓ Loaded: ${label}`, 'success');
     } else {
         console.error('Section not found:', section);
         printOutput(`✗ Content for '${section}' is not available yet.`, 'error');
         contentDisplay.innerHTML = '';
         contentDisplay.classList.add('hidden');
+    }
+}
+
+// Toggle maximize/restore content display
+function toggleMaximize(button) {
+    contentDisplay.classList.toggle('maximized');
+    
+    if (contentDisplay.classList.contains('maximized')) {
+        button.innerHTML = '⤡'; // Restore icon (same, or use ⊡)
+        button.title = 'Restore content';
+    } else {
+        button.innerHTML = '⤢'; // Maximize icon
+        button.title = 'Maximize content';
     }
 }
 

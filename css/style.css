@@ -394,6 +394,63 @@ body {
     margin-bottom: 12px;
 }
 
+/* Content maximize button */
+#content-display {
+    position: relative; /* For absolute positioning of button */
+}
+
+.content-maximize-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: var(--content-bg);
+    color: var(--content-heading);
+    border: 2px solid var(--content-border);
+    padding: 8px 12px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 10;
+    transition: all 0.2s;
+    line-height: 1;
+}
+
+.content-maximize-btn:hover {
+    background-color: var(--content-border);
+    color: var(--content-bg);
+    transform: scale(1.1);
+}
+
+/* Maximized state */
+#content-display.maximized {
+    position: fixed;
+    top: 60px; /* Below nav */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-height: none;
+    margin: 0;
+    border-radius: 0;
+    z-index: 999;
+    animation: maximize 0.3s ease-out;
+}
+
+@keyframes maximize {
+    from {
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Hide input line when maximized */
+/* #content-display.maximized ~ .input-line {
+    display: none;
+} */
+
 /* Section Links */
 .section-link {
     font-size: 0.7em;
