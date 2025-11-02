@@ -2,7 +2,7 @@
 
 ## About
 
-**The F-B-B Symposium 2026: Lowering the Foo, rising the Bar**
+**The F-B-B Symposium 2026: Lowering the Foo, raising the Bar**
 
 Join us for the leading symposium on foo, bar, and baz.
 
