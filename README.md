@@ -52,7 +52,7 @@ Creating new sections, e.g. for registration or calls for contributions, require
   + ## Register
   + 
   + Registration for API Editions 2026 will open on **January 15, 2026**.
-```
+  ```
 
 </details>
 
