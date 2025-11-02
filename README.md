@@ -30,6 +30,31 @@ You can also access sections directly:
 
 </details>
 
+<details>
+<summary><h2>Extend the minisite</h2></summary>
+
+Creating new sections, e.g. for registration or calls for contributions, requires two short steps:
+
+* Add the new section(s) to `config.yml`
+
+  ```diff
+  +   - id: "cfp"
+  +     label: "CFP"
+  +     icon: "📣"
+  +   - id: "register"
+  +     label: "Register"
+  +     icon: "✍️"
+  ```
+
+* Add sections with corresponding titles to `content.md`
+
+  ```diff
+  + ## Register
+  + 
+  + Registration for API Editions 2026 will open on **January 15, 2026**.
+```
+
+</details>
 
 <details>
 <summary><h2>Commands</h2></summary>
