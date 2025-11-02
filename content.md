@@ -1,69 +1,63 @@
-# Re-use of editions and text collections: The role of APIs
+# The F-B-B Symposium 2026
 
 ## About
 
-**Re-use of editions and text collections: The role of APIs**
+**The F-B-B Symposium 2026: Lowering the Foo, rising the Bar**
 
-*Workshop by the swissuniversities ORD *ReSED* project*
+Join us for the leading symposium on foo, bar, and baz.
 
-[Some paragraphs on the conference and its goals]
+Cutting-edge scholarship on bazzeology in the age of artificial barfoo.
 
-**Dates:** Jan 29 and Jan 30, 2026  
-
-**Location:** University of Zurich, KOL H-317
-
-**Format:** On-site only / in person
+**Dates:** June 15, 2026  
+**Location:** foo hall, bar bados  
+**Format:** Hybrid (in-person and virtual attendance available)
 
 ### Organisers
 
-- Elena Chestnova, elena.chestnova@usi.ch
-- Peter Daengeli, peter.daengeli@unibe.ch
-- Elena Spadini, elena.spadini@unibe.ch
-- Yann Stricker, yann.stricker@uzh.ch
+- Walter, walter@f-b-b.org
+- Wendy, wendy@f-b-b.org
 
 ## Program
 
-### Day 1: January 29, 2026
+### Day 1: June 15, 2026
 
-|||||
-|---|---|---|---|
-|09:30-10:00| Welcome coffee |  |
+**09:00 - 09:30** Registration and Coffee
 
+**09:30 - 10:00** Opening Keynote: *Advances in bar studies*  
+Speaker: TBC
 
---- 
+**10:15 - 11:45** Session 1: baz buzzing
+- Talk 1: Alice
+- Talk 2: Bob
 
-### Day 2: January 30, 2026
+**12:00 - 13:00** Lunch
 
-|||||
-|---|---|---|---|
-|09:30-10:00| Welcome coffee |  |
+**13:00 - 14:30** Session 2: Funding foo  
+- Talk 1: Carol
+- Talk 2: Dan
 
+**15:00 - 16:30** Hands-on Workshop: Where's the bar?
 
-## Register
-
-*Information pending*
-
+**19:00** Reception
 
 ## Venue
 
-**KOL H 317, University of Zurich**
+**foo hall, Bar bados**
+Ocean Drive 42
 
-Rämistrasse 71
+The conference will be held at the state-of-the-art foo hall, located in the heart of the city. The venue features:
 
-6007 Zürich
-
-The conference will be held …
-
-
-Get a glimpse here: [https://www.uniability.uzh.ch/static/current/buildings/KOL/rooms/H-317](https://www.uniability.uzh.ch/static/current/buildings/KOL/rooms/H-317)
-
-![](img/map.png)
-
-Check on campus map: [https://www.plaene.uzh.ch/KOL](https://www.plaene.uzh.ch/KOL)
+- Modern conference facilities with hybrid capabilities
+- High-speed internet throughout
+- Accessible meeting rooms
+- On-site catering
+- Video recording and streaming infrastructure
 
 ### Getting There
 
 *Information pending*
+
+The venue is fully wheelchair accessible.
 
 ## Hotels
 
@@ -71,7 +65,15 @@ Check on campus map: [https://www.plaene.uzh.ch/KOL](https://www.plaene.uzh.ch/K
 
 *Information pending*
 
+### Alternative Accommodation
+
+**Airbnb and Apartments:**  
+Many options available.
+
+**Student Residences:**   
+Contact conference organizers for booking codes.
 
 ### Booking Tips
 
-[TBD]
+- Book early
+- Public transport day pass included
