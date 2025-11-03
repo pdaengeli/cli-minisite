@@ -173,8 +173,9 @@ body {
     overflow-x: auto;
 }
 
-/* Mobile Title - Hidden by default, shown on mobile home screen */
+/* Mobile Title - hidden by default */
 .mobile-title {
+    display: none;
     text-align: center;
     padding: 20px;
     margin-bottom: 30px;
@@ -184,10 +185,6 @@ body {
     font-family: 'SF Mono', 'Monaco', 'Consolas', 'Courier New', monospace;
     position: relative;
     overflow: hidden;
-}
-
-.mobile-title.hidden {
-    display: none;
 }
 
 /* CRT scanline effect - REDUCED OPACITY for better readability */
@@ -666,6 +663,7 @@ body {
         display: none !important;
     }
     
+    /* Show mobile title on mobile (unless .hidden) */
     .mobile-title:not(.hidden) {
         display: block !important;
     }
@@ -725,18 +723,6 @@ body {
     .ascii-art {
         font-size: 3px;
         line-height: 1;
-    }
-}
-
-/* Desktop - always hide mobile title, ensure welcome box visible */
-@media (min-width: 769px) {
-    .mobile-title {
-        display: none !important;
-    }
-    
-    /* Ensure welcome box is always visible on desktop */
-    .help-text {
-        display: block;
     }
 }
 
