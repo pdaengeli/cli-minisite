@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "CLI-style conference website",
   "scripts": {
-    "build": "node build.js"
+    "build": "cd template && node build.js"
   },
   "keywords": ["conference", "cli", "markdown"],
   "author": "",

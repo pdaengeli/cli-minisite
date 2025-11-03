@@ -5,11 +5,11 @@ const yaml = require('js-yaml');
 console.log('Starting build process...');
 
 // Read config
-const config = yaml.load(fs.readFileSync('config.yml', 'utf-8'));
+const config = yaml.load(fs.readFileSync('../config.yml', 'utf-8'));
 console.log(`Building site for: ${config.conference.title}`);
 
 // Read content.md
-const content = fs.readFileSync('content.md', 'utf-8');
+const content = fs.readFileSync('../content.md', 'utf-8');
 
 // Split by h2 headers
 const sections = {};
@@ -61,14 +61,14 @@ if (fs.existsSync('temp.md')) {
 }
 
 // Write sections.json
-fs.writeFileSync('sections.json', JSON.stringify(htmlSections, null, 2));
+fs.writeFileSync('../sections.json', JSON.stringify(htmlSections, null, 2));
 console.log('✓ Generated sections.json');
 
 // Generate config.js for frontend
 const configJs = `// Auto-generated configuration
 window.CONFERENCE_CONFIG = ${JSON.stringify(config, null, 2)};
 `;
-fs.writeFileSync('config.js', configJs);
+fs.writeFileSync('../config.js', configJs);
 console.log('✓ Generated config.js');
 
 // Generate index.html from template
@@ -131,6 +131,6 @@ function generateIndexHtml(config) {
 </body>
 </html>`;
 
-    fs.writeFileSync('index.html', template);
+    fs.writeFileSync('../index.html', template);
     console.log('✓ Generated index.html from config');
 }
