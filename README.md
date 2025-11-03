@@ -181,10 +181,7 @@ The set of available commands depends on the sections defined in the configurati
 </details>
 
 <details>
-<summary><h2>Setup</h2></summary>
-
-
-### Local Development
+<summary><h2>Local Development</h2></summary>
 
 ```bash
 npm install
