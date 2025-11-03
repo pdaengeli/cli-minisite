@@ -11,6 +11,10 @@ Terminal-style conference website. Edit one Markdown file, get a working site.
 3. **Push to GitHub**
 4. GitHub Actions automatically builds and deploys to GitHub Pages
 
+## Integrate template updates (subtree)
+
+1. Run `git subtree pull --prefix template cli-template main --squash`
+
 <details>
 <summary><h2>Features</h2></summary>
 

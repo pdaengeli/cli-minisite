@@ -23,7 +23,9 @@ jobs:
           node-version: '18'
       
       - name: Install dependencies
-        run: npm install
+        run: |
+          cd template
+          npm install
       
       - name: Install Pandoc
         run: |
@@ -31,7 +33,7 @@ jobs:
           sudo apt-get install -y pandoc
       
       - name: Build site
-        run: npm run build
+        run: node template/build.js
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
