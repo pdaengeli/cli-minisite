@@ -7,12 +7,36 @@ const yaml = require('js-yaml');
 const rootDir = path.join(__dirname, '..');
 const configPath = path.join(rootDir, 'config.yml');
 const contentPath = path.join(rootDir, 'content.md');
+const exampleConfigPath = path.join(rootDir, 'example-config.yml');
+const exampleContentPath = path.join(rootDir, 'example-content.md');
 const tempPath = path.join(rootDir, 'temp.md');
 const outputSections = path.join(rootDir, 'sections.json');
 const outputConfig = path.join(rootDir, 'config.js');
 const outputHtml = path.join(rootDir, 'index.html');
 
 console.log('Starting build process...');
+
+// Check if config.yml exists, if not copy from example
+if (!fs.existsSync(configPath)) {
+    if (fs.existsSync(exampleConfigPath)) {
+        console.log('⚠ config.yml not found, using example-config.yml');
+        fs.copyFileSync(exampleConfigPath, configPath);
+    } else {
+        console.error('✗ Error: config.yml not found and no example-config.yml available');
+        process.exit(1);
+    }
+}
+
+// Check if content.md exists, if not copy from example
+if (!fs.existsSync(contentPath)) {
+    if (fs.existsSync(exampleContentPath)) {
+        console.log('⚠ content.md not found, using example-content.md');
+        fs.copyFileSync(exampleContentPath, contentPath);
+    } else {
+        console.error('✗ Error: content.md not found and no example-content.md available');
+        process.exit(1);
+    }
+}
 
 // Read config
 const config = yaml.load(fs.readFileSync(configPath, 'utf-8'));
@@ -103,8 +127,8 @@ function generateIndexHtml(config) {
     <meta name="description" content="${config.site.description}">
     <meta name="author" content="${config.site.author}">
     <title>${config.conference.title} - ${config.conference.subtitle}</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="template/css/style.css">
+    <link rel="stylesheet" href="template/css/print.css" media="print">
 </head>
 <body>
     <!-- Persistent Menu -->
@@ -144,7 +168,7 @@ function generateIndexHtml(config) {
     </div>
     
     <script src="config.js"></script>
-    <script src="js/app.js"></script>
+    <script src="template/js/app.js"></script>
 </body>
 </html>`;
 
