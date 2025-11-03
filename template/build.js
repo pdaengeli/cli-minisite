@@ -1,15 +1,25 @@
 const fs = require('fs');
+const path = require('path');
 const { execSync } = require('child_process');
 const yaml = require('js-yaml');
+
+// All paths relative to root (parent of template/)
+const rootDir = path.join(__dirname, '..');
+const configPath = path.join(rootDir, 'config.yml');
+const contentPath = path.join(rootDir, 'content.md');
+const tempPath = path.join(rootDir, 'temp.md');
+const outputSections = path.join(rootDir, 'sections.json');
+const outputConfig = path.join(rootDir, 'config.js');
+const outputHtml = path.join(rootDir, 'index.html');
 
 console.log('Starting build process...');
 
 // Read config
-const config = yaml.load(fs.readFileSync('../config.yml', 'utf-8'));
+const config = yaml.load(fs.readFileSync(configPath, 'utf-8'));
 console.log(`Building site for: ${config.conference.title}`);
 
 // Read content.md
-const content = fs.readFileSync('../content.md', 'utf-8');
+const content = fs.readFileSync(contentPath, 'utf-8');
 
 // Split by h2 headers
 const sections = {};
@@ -42,10 +52,10 @@ const htmlSections = {};
 for (const [key, markdown] of Object.entries(sections)) {
     try {
         // Write temp markdown file
-        fs.writeFileSync('temp.md', markdown);
+        fs.writeFileSync(tempPath, markdown);
         
         // Convert with Pandoc
-        const html = execSync('pandoc temp.md -f markdown -t html').toString();
+        const html = execSync(`pandoc "${tempPath}" -f markdown -t html`).toString();
         htmlSections[key] = html;
         
         console.log(`✓ Converted section: ${key}`);
@@ -56,19 +66,19 @@ for (const [key, markdown] of Object.entries(sections)) {
 }
 
 // Clean up temp file
-if (fs.existsSync('temp.md')) {
-    fs.unlinkSync('temp.md');
+if (fs.existsSync(tempPath)) {
+    fs.unlinkSync(tempPath);
 }
 
 // Write sections.json
-fs.writeFileSync('../sections.json', JSON.stringify(htmlSections, null, 2));
+fs.writeFileSync(outputSections, JSON.stringify(htmlSections, null, 2));
 console.log('✓ Generated sections.json');
 
 // Generate config.js for frontend
 const configJs = `// Auto-generated configuration
 window.CONFERENCE_CONFIG = ${JSON.stringify(config, null, 2)};
 `;
-fs.writeFileSync('../config.js', configJs);
+fs.writeFileSync(outputConfig, configJs);
 console.log('✓ Generated config.js');
 
 // Generate index.html from template
@@ -77,6 +87,14 @@ generateIndexHtml(config);
 console.log('\n✓ Build complete!');
 
 function generateIndexHtml(config) {
+    // Safely escape for HTML
+    const asciiArt = (config.ascii_art || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    
     const template = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,7 +107,6 @@ function generateIndexHtml(config) {
     <link rel="stylesheet" href="css/print.css" media="print">
 </head>
 <body>
-
     <!-- Persistent Menu -->
     <nav class="top-nav">
         <div class="nav-left">
@@ -112,7 +129,7 @@ function generateIndexHtml(config) {
     
     <div id="terminal">
         <!-- ASCII Art Title -->
-        <pre id="ascii-title" class="ascii-art">${config.ascii_art}</pre>
+        <pre id="ascii-title" class="ascii-art">${asciiArt}</pre>
 
         <div id="output"></div>
         
@@ -131,6 +148,6 @@ function generateIndexHtml(config) {
 </body>
 </html>`;
 
-    fs.writeFileSync('../index.html', template);
+    fs.writeFileSync(outputHtml, template);
     console.log('✓ Generated index.html from config');
 }
