@@ -1,4 +1,4 @@
-# CLI Minisite
+# CLI Conference Minisite
 
 Terminal-style conference website. Edit one Markdown file, get a working site.
 
@@ -102,16 +102,6 @@ git remote add origin <your-repo-url>
 git push -u origin main
 ```
 
-</details>
-
-### Updating the Template
-
-To pull template updates (CSS, JS, build system) without touching your conference content:
-
-```bash
-git subtree pull --prefix template cli-template main --squash
-```
-
 ### File Structure
 
 ```
@@ -125,6 +115,24 @@ your-conference-repo/
     ├── css/
     ├── js/
     └── package.json
+```
+
+</details>
+
+### Enable GitHub Pages
+
+Before or immediately after your first push, enable GitHub Pages:
+
+1. Go to **Settings** → **Pages**
+2. Under **Source**, select **GitHub Actions**
+3. The site will build and deploy automatically on every push to `main`
+
+### Updating the Template
+
+To pull template updates (CSS, JS, build system) without touching your conference content:
+
+```bash
+git subtree pull --prefix template cli-template main --squash
 ```
 
 **Only edit:** `config.yml` and `content.md`. The template directory is managed via Git subtree.
@@ -168,16 +176,13 @@ Type these commands in the terminal:
 - `program` - Schedule and talks
 - `venue` - Location details
 
+The set of available commands depends on the sections defined in the configuration and content files.
+
 </details>
 
 <details>
 <summary><h2>Setup</h2></summary>
 
-### Enable GitHub Pages
-
-1. Go to **Settings** → **Pages**
-2. Source: **GitHub Actions**
-3. Push changes to trigger deployment
 
 ### Local Development
 
