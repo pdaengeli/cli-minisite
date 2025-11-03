@@ -190,7 +190,7 @@ body {
     display: none;
 }
 
-/* CRT scanline effect */
+/* CRT scanline effect - REDUCED OPACITY for better readability */
 .mobile-title::before {
     content: '';
     position: absolute;
@@ -551,8 +551,8 @@ body {
     font-weight: bold;
 }
 
-#output .help-text {
-    display: none !important;
+.help-text {
+    color: var(--text-dim);
 }
 
 /* Enhanced Prompt - MORE PROMINENT */
@@ -661,12 +661,11 @@ body {
         padding: 5px;
     }
     
-    /* Hide the welcome box on mobile */
-    .help-text {
+    /* Hide welcome box on mobile, show mobile title instead */
+    .output-block.help-text {
         display: none !important;
     }
     
-    /* Mobile title is controlled by JS .hidden class */
     .mobile-title:not(.hidden) {
         display: block !important;
     }
@@ -729,10 +728,15 @@ body {
     }
 }
 
-/* Desktop - always hide mobile title */
+/* Desktop - always hide mobile title, ensure welcome box visible */
 @media (min-width: 769px) {
     .mobile-title {
         display: none !important;
+    }
+    
+    /* Ensure welcome box is always visible on desktop */
+    .help-text {
+        display: block;
     }
 }
 
