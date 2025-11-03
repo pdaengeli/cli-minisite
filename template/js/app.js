@@ -73,9 +73,24 @@ function generateWelcomeMessage() {
     return message;
 }
 
+// Show mobile title (CSS controls visibility based on screen size)
+function showMobileTitle() {
+    if (mobileTitle) {
+        mobileTitle.classList.remove('hidden');
+    }
+}
+
+// Hide mobile title
+function hideMobileTitle() {
+    if (mobileTitle) {
+        mobileTitle.classList.add('hidden');
+    }
+}
+
 // Initialize
 window.addEventListener('DOMContentLoaded', async () => {
     printOutput(generateWelcomeMessage(), 'help-text');
+    showMobileTitle(); // CSS will control if it actually shows
     
     // Load content first, then check hash
     await loadContent();
@@ -88,7 +103,6 @@ window.addEventListener('DOMContentLoaded', async () => {
         const anchor = parts[1];
         
         if (sections[command]) {
-            // REMOVED: echoCommand(command); - Don't echo here, let executeCommand handle it
             executeCommand(command, false);
             
             // Scroll to anchor if present
@@ -203,34 +217,10 @@ input.addEventListener('keydown', (e) => {
 // Execute command from input
 function executeCommandFromInput() {
     const command = input.value.trim().toLowerCase();
-    switch (command) {
-        case 'home':
-            goHome();
-            break;
-        case 'help':
-            showHelp();
-            updatePrompt(null);
-            // Hide mobile title
-            if (mobileTitle) mobileTitle.classList.add('hidden');
-            break;
-        case 'clear':
-            output.innerHTML = '';
-            contentDisplay.innerHTML = '';
-            contentDisplay.classList.add('hidden');
-            updatePrompt(null);
-            window.location.hash = '';
-            // Show mobile title again
-            if (mobileTitle) mobileTitle.classList.remove('hidden');
-            break;
-        default:
-            if (availableCommands.includes(command)) {
-                showSection(command);
-                updatePrompt(command);
-                // Hide mobile title
-                if (mobileTitle) mobileTitle.classList.add('hidden');
-            } else {
-                printOutput(`Command not found: ${command}. Type 'help' for available commands.`, 'error');
-        }
+    if (command) {
+        historyIndex = commandHistory.length;
+        executeCommand(command, true);
+        input.value = '';
     }
 }
 
@@ -301,6 +291,7 @@ function executeCommand(command, updateHash = true) {
         case 'help':
             showHelp();
             updatePrompt(null);
+            hideMobileTitle();
             break;
         case 'clear':
             output.innerHTML = '';
@@ -308,11 +299,13 @@ function executeCommand(command, updateHash = true) {
             contentDisplay.classList.add('hidden');
             updatePrompt(null);
             window.location.hash = '';
+            showMobileTitle();
             break;
         default:
             if (availableCommands.includes(command)) {
                 showSection(command);
                 updatePrompt(command);
+                hideMobileTitle();
             } else {
                 printOutput(`Command not found: ${command}. Type 'help' for available commands.`, 'error');
             }
@@ -327,30 +320,10 @@ function goHome() {
     contentDisplay.innerHTML = '';
     contentDisplay.classList.add('hidden');
     printOutput(generateWelcomeMessage(), 'help-text');
-    
-    // Show mobile title on mobile
-    if (mobileTitle) {
-        mobileTitle.classList.remove('hidden');
-    }
-    
     updatePrompt(null);
     window.location.hash = '';
+    showMobileTitle();
 }
-
-// Update initialize section (around line 76)
-window.addEventListener('DOMContentLoaded', async () => {
-    printOutput(generateWelcomeMessage(), 'help-text');
-    
-    // Show mobile title initially on mobile
-    if (mobileTitle && window.innerWidth <= 768) {
-        mobileTitle.classList.remove('hidden');
-    }
-    
-    // Load content first, then check hash
-    await loadContent();
-    
-    // ... rest of the code
-});
 
 // Show help
 function showHelp() {
@@ -445,7 +418,7 @@ function toggleMaximize(button) {
     contentDisplay.classList.toggle('maximized');
     
     if (contentDisplay.classList.contains('maximized')) {
-        button.innerHTML = '⤡'; // Restore icon (same, or use ⊡)
+        button.innerHTML = '⤡'; // Restore icon
         button.title = 'Restore content';
     } else {
         button.innerHTML = '⤢'; // Maximize icon
