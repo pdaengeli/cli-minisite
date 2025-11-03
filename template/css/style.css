@@ -200,8 +200,8 @@ body {
     height: 100%;
     background: repeating-linear-gradient(
         0deg,
-        rgba(0, 0, 0, 0.15),
-        rgba(0, 0, 0, 0.15) 1px,
+        rgba(0, 0, 0, 0.03),
+        rgba(0, 0, 0, 0.03) 1px,
         transparent 1px,
         transparent 2px
     );
@@ -650,6 +650,17 @@ body {
         font-size: 11px;
     }
     
+    /* Scale ASCII art to fit on small screens */
+    .ascii-art {
+        font-size: 6px;
+        line-height: 1.1;
+        transform-origin: top center;
+        max-width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 5px;
+    }
+    
     /* Hide the welcome box on mobile */
     .help-text {
         display: none !important;
@@ -700,6 +711,21 @@ body {
     
     #command-input {
         font-size: 13px;
+    }
+}
+
+/* Extra small screens - scale ASCII art even more */
+@media (max-width: 480px) {
+    .ascii-art {
+        font-size: 4px;
+        line-height: 1.05;
+    }
+}
+
+@media (max-width: 360px) {
+    .ascii-art {
+        font-size: 3px;
+        line-height: 1;
     }
 }
 
