@@ -547,56 +547,76 @@ body {
     }
     
     #terminal {
-        padding: 10px;
-        padding-top: 100px;
+        padding: 5px;
+        padding-top: 10px; /* Much less padding */
     }
     
     .top-nav {
-        padding: 8px;
-        gap: 5px;
+        padding: 5px;
+        gap: 3px;
+        position: relative; /* Not sticky on mobile */
+    }
+    
+    .nav-left {
+        gap: 3px;
     }
     
     .nav-btn {
-        font-size: 12px;
-        padding: 6px 10px;
+        font-size: 10px;
+        padding: 5px 8px;
+        white-space: nowrap;
     }
     
+    /* Hide icons on mobile to save space */
+    .nav-btn {
+        font-size: 11px;
+    }
+    
+    /* Hide ASCII art on mobile */
     .ascii-art {
-        font-size: 6px;
+        display: none;
     }
     
     #content-display {
-        padding: 20px;
-        max-height: 60vh;
-        font-size: 15px;
+        padding: 15px;
+        max-height: 70vh;
+        font-size: 14px;
+        margin-top: 10px;
     }
     
     #content-display .content-title {
-        font-size: 24px;
+        font-size: 20px;
+        margin-bottom: 15px;
     }
     
     #content-display .content-body h1 {
-        font-size: 20px;
-    }
-    
-    #content-display h2 {
         font-size: 18px;
     }
     
-    #content-display h3 {
+    #content-display h2 {
         font-size: 16px;
     }
     
+    #content-display h3 {
+        font-size: 15px;
+    }
+    
     .input-line {
-        padding: 10px;
+        padding: 8px;
+        position: fixed; /* Fixed at bottom on mobile */
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0;
+        border-radius: 0;
     }
     
     .prompt {
-        font-size: 14px;
+        font-size: 12px;
     }
     
     #command-input {
-        font-size: 14px;
+        font-size: 13px;
     }
 }
 
