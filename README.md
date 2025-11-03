@@ -90,6 +90,7 @@ temp.md
 node_modules/
 template/node_modules/
 *.backup
+*.bak
 EOF
 
 # 6. Build and test locally
