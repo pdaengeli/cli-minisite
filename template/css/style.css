@@ -551,8 +551,8 @@ body {
     font-weight: bold;
 }
 
-.help-text {
-    color: var(--text-dim);
+#output .help-text {
+    display: none !important;
 }
 
 /* Enhanced Prompt - MORE PROMINENT */
