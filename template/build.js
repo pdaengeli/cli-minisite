@@ -133,27 +133,19 @@ function generateIndexHtml(config) {
 <body>
     <!-- Persistent Menu -->
     <nav class="top-nav">
-        <div class="nav-left">
-            <button class="nav-btn nav-btn-home" data-cmd="home">🏠 Home</button>
-            ${config.sections.map(section => 
-                `<button class="nav-btn" data-cmd="${section.id}">${section.icon} ${section.label}</button>`
-            ).join('\n            ')}
-            <button class="nav-btn" data-cmd="help">❓ Help</button>
-            <button class="nav-btn" data-cmd="clear">🗑️ Clear</button>
-        </div>
-        <div class="nav-right">
-            <button id="theme-toggle" class="nav-btn" title="Change theme">🎨 Theme</button>
-            <div id="theme-menu" class="hidden">
-                ${config.themes.map(theme => 
-                    `<button data-theme="${theme.id}">${theme.name}</button>`
-                ).join('\n                ')}
-            </div>
-        </div>
+        <!-- ... existing nav ... -->
     </nav>
     
     <div id="terminal">
-        <!-- ASCII Art Title -->
+        <!-- ASCII Art Title (desktop) -->
         <pre id="ascii-title" class="ascii-art">${asciiArt}</pre>
+
+        <!-- Mobile Title -->
+        <div class="mobile-title">
+            <h1>${config.conference.title}</h1>
+            <p class="subtitle">${config.conference.subtitle}</p>
+            <p class="dates">${config.conference.date} | ${config.conference.location}</p>
+        </div>
 
         <div id="output"></div>
         
