@@ -4,6 +4,7 @@ const input = document.getElementById('command-input');
 const terminal = document.getElementById('terminal');
 const contentDisplay = document.getElementById('content-display');
 const promptText = document.getElementById('prompt-text');
+const mobileTitle = document.getElementById('mobile-title');
 
 let commandHistory = [];
 let historyIndex = -1;
@@ -202,10 +203,34 @@ input.addEventListener('keydown', (e) => {
 // Execute command from input
 function executeCommandFromInput() {
     const command = input.value.trim().toLowerCase();
-    if (command) {
-        historyIndex = commandHistory.length;
-        executeCommand(command, true);
-        input.value = '';
+    switch (command) {
+        case 'home':
+            goHome();
+            break;
+        case 'help':
+            showHelp();
+            updatePrompt(null);
+            // Hide mobile title
+            if (mobileTitle) mobileTitle.classList.add('hidden');
+            break;
+        case 'clear':
+            output.innerHTML = '';
+            contentDisplay.innerHTML = '';
+            contentDisplay.classList.add('hidden');
+            updatePrompt(null);
+            window.location.hash = '';
+            // Show mobile title again
+            if (mobileTitle) mobileTitle.classList.remove('hidden');
+            break;
+        default:
+            if (availableCommands.includes(command)) {
+                showSection(command);
+                updatePrompt(command);
+                // Hide mobile title
+                if (mobileTitle) mobileTitle.classList.add('hidden');
+            } else {
+                printOutput(`Command not found: ${command}. Type 'help' for available commands.`, 'error');
+        }
     }
 }
 
@@ -302,9 +327,30 @@ function goHome() {
     contentDisplay.innerHTML = '';
     contentDisplay.classList.add('hidden');
     printOutput(generateWelcomeMessage(), 'help-text');
+    
+    // Show mobile title on mobile
+    if (mobileTitle) {
+        mobileTitle.classList.remove('hidden');
+    }
+    
     updatePrompt(null);
     window.location.hash = '';
 }
+
+// Update initialize section (around line 76)
+window.addEventListener('DOMContentLoaded', async () => {
+    printOutput(generateWelcomeMessage(), 'help-text');
+    
+    // Show mobile title initially on mobile
+    if (mobileTitle && window.innerWidth <= 768) {
+        mobileTitle.classList.remove('hidden');
+    }
+    
+    // Load content first, then check hash
+    await loadContent();
+    
+    // ... rest of the code
+});
 
 // Show help
 function showHelp() {

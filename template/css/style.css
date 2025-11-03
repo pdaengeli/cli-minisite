@@ -173,9 +173,8 @@ body {
     overflow-x: auto;
 }
 
-/* Mobile Title - Hidden by default, shown on mobile */
+/* Mobile Title - Hidden by default, shown on mobile home screen */
 .mobile-title {
-    display: none;
     text-align: center;
     padding: 20px;
     margin-bottom: 30px;
@@ -185,6 +184,10 @@ body {
     font-family: 'SF Mono', 'Monaco', 'Consolas', 'Courier New', monospace;
     position: relative;
     overflow: hidden;
+}
+
+.mobile-title.hidden {
+    display: none;
 }
 
 /* CRT scanline effect */
@@ -208,7 +211,8 @@ body {
 
 .mobile-title h1,
 .mobile-title .subtitle,
-.mobile-title .dates {
+.mobile-title .dates,
+.mobile-title .mobile-instructions {
     position: relative;
     z-index: 2;
 }
@@ -234,6 +238,17 @@ body {
     color: var(--text-dim);
     padding-top: 10px;
     border-top: 1px solid var(--text-dim);
+}
+
+.mobile-title .mobile-instructions {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--text-dim);
+    font-size: 14px;
+}
+
+.mobile-title .mobile-instructions p {
+    margin: 5px 0;
 }
 
 #terminal {
@@ -546,13 +561,13 @@ body {
     align-items: center;
     margin-top: 30px;
     padding: 15px;
-    background-color: var(--bg-color); /* CHANGED: solid background instead of transparent */
+    background-color: var(--bg-color);
     border: 2px solid var(--prompt-color);
     border-radius: 8px;
     position: sticky;
     bottom: 10px;
     box-shadow: 0 4px 12px rgba(0, 255, 0, 0.2);
-    z-index: 100; /* ADD: ensure it's above content */
+    z-index: 100;
 }
 
 .prompt {
@@ -611,13 +626,13 @@ body {
     
     #terminal {
         padding: 5px;
-        padding-top: 10px; /* Much less padding */
+        padding-top: 10px;
     }
     
     .top-nav {
         padding: 5px;
         gap: 3px;
-        position: relative; /* Not sticky on mobile */
+        position: relative;
     }
     
     .nav-left {
@@ -635,12 +650,13 @@ body {
         font-size: 11px;
     }
     
-    /* Hide ASCII art on mobile, show mobile title instead */
-    .ascii-art {
+    /* Hide the welcome box on mobile */
+    .help-text {
         display: none !important;
     }
-
-    .mobile-title {
+    
+    /* Mobile title is controlled by JS .hidden class */
+    .mobile-title:not(.hidden) {
         display: block !important;
     }
     
@@ -670,7 +686,7 @@ body {
     
     .input-line {
         padding: 8px;
-        position: fixed; /* Fixed at bottom on mobile */
+        position: fixed;
         bottom: 0;
         left: 0;
         right: 0;
@@ -684,6 +700,13 @@ body {
     
     #command-input {
         font-size: 13px;
+    }
+}
+
+/* Desktop - always hide mobile title */
+@media (min-width: 769px) {
+    .mobile-title {
+        display: none !important;
     }
 }
 
