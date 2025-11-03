@@ -383,7 +383,7 @@ function showSection(section) {
         // Add maximize button
         const maximizeBtn = document.createElement('button');
         maximizeBtn.className = 'content-maximize-btn';
-        maximizeBtn.innerHTML = '⛶'; // Maximize icon
+        maximizeBtn.innerHTML = '⤢'; // Maximize icon
         maximizeBtn.title = 'Maximize content';
         maximizeBtn.onclick = () => toggleMaximize(maximizeBtn);
         contentDisplay.appendChild(maximizeBtn);
