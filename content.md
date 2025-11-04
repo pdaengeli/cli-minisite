@@ -25,9 +25,9 @@ The project pursues two primary goals:
 
 ### Funding
 
-|<img src="https://www.usi.ch/sites/default/files/styles/usi_xxlarge/public/storage/images/press-usi-immagini-logo.png?itok=2aRGgI8Y"/>| <img src="https://open-up-dse.github.io/img/univZurichLogoSmall.jpeg"/>  |
-|<img src="img/wbkolleg_englisch_2023.png"/>|<img src="img/DH_Farbe_png.png"/> |
-|<img src="https://www.swissuniversities.ch/_assets/feb1d86054ab2e718cccf9db6ed46074/Partials/Logo/Images/Logo.svg"/>||
+|<img height="125px" src="https://www.usi.ch/sites/default/files/styles/usi_xxlarge/public/storage/images/press-usi-immagini-logo.png?itok=2aRGgI8Y"/>| <img height="125px" src="https://open-up-dse.github.io/img/univZurichLogoSmall.jpeg"/>  |
+|<img height="125px" src="img/wbkolleg_englisch_2023.png"/>|<img height="125px" src="img/DH_Farbe_png.png"/> |
+|<img height="125px" src="https://www.swissuniversities.ch/_assets/feb1d86054ab2e718cccf9db6ed46074/Partials/Logo/Images/Logo.svg"/>||
 
 ## Program
 
