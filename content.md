@@ -6,7 +6,9 @@
 
 *Workshop by the swissuniversities ORD *ReSED* project*
 
-[Some paragraphs on the conference and its goals]
+The project pursues two primary goals:
+- Explore ORD practices related to data-re-use and APIs within the field of editions;
+- Specify ORD standards based on the analysis of the needs and desiderata of the community.
 
 **Dates:** Jan 29 and Jan 30, 2026  
 
@@ -23,8 +25,8 @@
 
 ### Funding
 
-|  |  |
-|--|--|
+|<img src="https://www.usi.ch/sites/default/files/styles/usi_xxlarge/public/storage/images/press-usi-immagini-logo.png?itok=2aRGgI8Y"/>| <img src="https://open-up-dse.github.io/img/univZurichLogoSmall.jpeg"/>  |
+|<img src="img/wbkolleg_englisch_2023.png"/>|<img src="img/DH_Farbe_png.png"/> |
 |<img src="https://www.swissuniversities.ch/_assets/feb1d86054ab2e718cccf9db6ed46074/Partials/Logo/Images/Logo.svg"/>||
 
 ## Program
