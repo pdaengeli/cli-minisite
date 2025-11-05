@@ -184,6 +184,19 @@ The set of available commands depends on the sections defined in the configurati
 <details>
 <summary><h2>Local Development</h2></summary>
 
+Create a `package.json` file in your repository root:
+
+```json
+{
+  "name": "your-conference-name",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "cd template && npm install && node build.js"
+  }
+}
+```
+
 ```bash
 npm install
 npm run build
