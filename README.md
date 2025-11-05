@@ -224,13 +224,49 @@ python -m http.server 8000
 
 Then open http://localhost:8000
 
-### Updating the Template
-
-Pull the latest template changes:
+4. **Serve locally:**
 
 ```bash
-git subtree pull --prefix template cli-template main --squash
+python -m http.server 8000
+# Or: npx http-server -p 8000
 ```
+
+Then open http://localhost:8000
+
+### Making Changes
+
+Edit conference content and rebuild:
+
+```bash
+vim content.md      # Edit content
+vim config.yml      # Edit configuration
+npm run build       # Rebuild the site
+```
+
+Refresh browser to see the changes.
+
+### Updating the Template
+
+When there are updates to the template (CSS, JS, build system), it makes sense to update the local copy:
+
+```bash
+# Backup current template
+cp -r template template.backup
+
+# Download the latest template
+curl -L https://github.com/pdaengeli/cli-minisite/archive/refs/heads/main.tar.gz | tar xz
+
+# Copy the updated template directory
+cp -r cli-minisite-main/template/* template/
+
+# Clean up
+rm -rf cli-minisite-main
+
+# Rebuild with the new template
+npm run build
+```
+
+**Note:** GitHub Actions automatically uses the latest template when building, so local template updates are optional.
 
 </details>
 
