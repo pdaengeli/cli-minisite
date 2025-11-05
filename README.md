@@ -184,7 +184,16 @@ The set of available commands depends on the sections defined in the configurati
 <details>
 <summary><h2>Local Development</h2></summary>
 
-Create a `package.json` file in your repository root:
+### Initial Setup
+
+1. **Add the template remote** (only needed once):
+
+```bash
+git remote add cli-template https://github.com/pdaengeli/cli-minisite.git
+git fetch cli-template main
+```
+
+2. **Create a `package.json` file in your repository root:**
 
 ```json
 {
@@ -197,9 +206,31 @@ Create a `package.json` file in your repository root:
 }
 ```
 
+### During development
+
+3. **Build and run:**
+
 ```bash
 npm install
 npm run build
 ```
 
+4. **Serve locally:**
+
+```bash
+python -m http.server 8000
+# Or: npx http-server -p 8000
+```
+
+Then open http://localhost:8000
+
+### Updating the Template
+
+Pull the latest template changes:
+
+```bash
+git subtree pull --prefix template cli-template main --squash
+```
+
 </details>
+
