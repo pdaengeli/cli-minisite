@@ -12,6 +12,18 @@ Cutting-edge scholarship on bazzeology in the age of artificial barfoo.
 **Location:** foo hall, bar bados  
 **Format:** Hybrid (in-person and virtual attendance available)
 
+<a href="#" class="btn-primary btn-large">Click a primary button</a>
+
+---
+
+Or a secondary one?
+
+<a href="#" class="btn-secondary">Go ahead.</a>
+
+Unless you feel more comfortable in terminal style:
+
+<a href="#" class="btn-terminal">$ last built-in button option</a>
+
 ### Organisers
 
 - Walter, walter@f-b-b.org

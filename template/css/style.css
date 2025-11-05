@@ -529,6 +529,7 @@ body {
 /* Button Styles for Content Areas */
 
 /* Primary Button - for main CTAs like registration */
+#content-display .btn-primary,
 .btn-primary {
     display: inline-block;
     background-color: var(--content-heading);
@@ -545,14 +546,17 @@ body {
     text-align: center;
 }
 
+#content-display .btn-primary:hover,
 .btn-primary:hover {
-    background-color: transparent;
+    background-color: var(--content-bg);
     color: var(--content-heading);
+    border-color: var(--content-heading);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Secondary Button - for less prominent actions */
+#content-display .btn-secondary,
 .btn-secondary {
     display: inline-block;
     background-color: transparent;
@@ -569,6 +573,7 @@ body {
     text-align: center;
 }
 
+#content-display .btn-secondary:hover,
 .btn-secondary:hover {
     background-color: var(--content-heading);
     color: var(--content-bg);
@@ -577,6 +582,7 @@ body {
 }
 
 /* Terminal Style Button - matches the CLI aesthetic */
+#content-display .btn-terminal,
 .btn-terminal {
     display: inline-block;
     background-color: var(--bg-color);
@@ -593,6 +599,7 @@ body {
     text-align: center;
 }
 
+#content-display .btn-terminal:hover,
 .btn-terminal:hover {
     background-color: var(--text-color);
     color: var(--bg-color);
