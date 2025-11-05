@@ -224,15 +224,6 @@ python -m http.server 8000
 
 Then open http://localhost:8000
 
-4. **Serve locally:**
-
-```bash
-python -m http.server 8000
-# Or: npx http-server -p 8000
-```
-
-Then open http://localhost:8000
-
 ### Making Changes
 
 Edit conference content and rebuild:
