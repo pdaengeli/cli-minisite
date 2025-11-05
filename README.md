@@ -186,6 +186,8 @@ The set of available commands depends on the sections defined in the configurati
 
 ### Initial Setup
 
+Make sure you have **Pandoc** installed.
+
 1. **Add the template remote** (only needed once):
 
 ```bash
